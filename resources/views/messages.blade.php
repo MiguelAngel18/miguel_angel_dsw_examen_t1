@@ -12,12 +12,14 @@
         @if($messages->isEmpty())
             <p>No hay mensajes en la base de datos</p>
         @else
-            <ul>
+            <select multiple>
                 @foreach($messages as $message)
-                    <li>{{ $message->text }}</li>
+                    <option style="border: 1px solid black; padding: 10px; display:flex; flex-direction:row; justify-content:left; align-items: baseline;"><p>{{ $message->text }}</p><img src="/IMG/{{ $message->img }}"></option>
                 @endforeach
-            </ul>
+            </select>
         @endif
     </div>
+    <button><a href="{{ route('create') }}" id="new">Nuevo Mensaje</a></button>
+    <br>
 </body>
 </html>
